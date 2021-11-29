@@ -4,6 +4,7 @@ import base64
 
 import argparse
 import os
+import sys
 
 import numpy as np
 from PIL import Image
@@ -18,6 +19,11 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--logout', action='store_true')
     args = parser.parse_args()
+
+    workPath = os.path.dirname(sys.argv[0])
+
+    qrcode = os.path.join(workPath, 'QRcode.jpg')
+    screenshot = os.path.join(workPath, 'ipgw.png')
 
     options = Options()
     options.add_argument('--headless')
@@ -35,9 +41,9 @@ if __name__ == '__main__':
             WebDriverWait(browser, 180, 1).until(EC.visibility_of_element_located((By.ID, 'qrcode')))
             screenshot_as_base64 = browser.find_element('id', 'qrcode').screenshot_as_base64
             img = base64.b64decode(screenshot_as_base64)
-            with open('QRcode.jpg', 'wb') as f:
+            with open(qrcode, 'wb') as f:
                 f.write(img)
-            img = Image.open('QRcode.jpg')
+            img = Image.open(qrcode)
             img = np.asarray(img)[1:-1, 1:-1, 0]
             img = np.delete(img, [18, 36, 52, 71, -52, -36, -18, -1], axis=0)
             img = np.delete(img, [18, 36, 52, 71, -52, -36, -18, -1], axis=1)
@@ -60,5 +66,5 @@ if __name__ == '__main__':
             WebDriverWait(browser, 120, 1).until(EC.visibility_of_element_located((By.ID, 'login-sso')))
             print("注销成功！")
     finally:
-        browser.save_screenshot(os.path.join(os.getcwd(), 'ipgw.png'))
+        browser.save_screenshot(screenshot)
         browser.close()
