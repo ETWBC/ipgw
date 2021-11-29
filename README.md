@@ -23,7 +23,7 @@ python ipgw.py
 
 ![image-20211129125929546](https://github.com/ETWBC/ipgw/blob/main/QRcode-sample.png)
 
-使用微信或智慧东大扫码（推荐使用微信，智慧东大扫码不灵敏），进行授权，即可登录。
+使用微信扫码，进行授权，即可登录。
 
 ### 注销
 
