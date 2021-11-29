@@ -8,15 +8,22 @@
 
 [Bingchao Wang](https://github.com/ETWBC); [Ming Wang](https://github.com/wangming1785)
 
+### 需求库
+
+- numpy
+- pillow
+- selenium
+
+此外，还需要下载[geckodriver](https://github.com/mozilla/geckodriver/releases)并将其路径加入PATH。
+
 ## 如何使用
-使用`chmod +x ipgw.py`为其添加可执行权限。
 
 ### 登录
 
 下载本项目，进入`ipgw.py`的路径下，使用python运行该文件：
 
 ```shell
-./ipgw.py
+python ipgw.py
 ```
 
 默认情况下是登录，运行后会显示一个二维码，如下图所示：
@@ -30,18 +37,20 @@
 注销与登录操作类似，只需要在运行时加`logout`参数：
 
 ```shell
-./ipgw.py --logout
+python ipgw.py --logout
 ```
 
 运行并扫码验证即可注销当前登录的账号。
 
-### 需求库
+### 全局使用方式
 
-- numpy
-- pillow
-- selenium
-
-此外，还需要下载[geckodriver](https://github.com/mozilla/geckodriver/releases)并将其路径加入PATH。
+使用`chmod +x ipgw.py`为其添加可执行权限。
+将用户目录下的 `.bashrc` 文件后加入两行
+···shell
+alias login='该py文件所在文件夹/ipgw.py'
+alias logout='该py文件所在文件夹/ipgw.py --logout'
+```
+然后可以在全局使用`login`进行登录，`logout`进行登出。
 
 ## 说明
 
