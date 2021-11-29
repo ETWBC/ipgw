@@ -1,6 +1,6 @@
 # ipgw
 
-###Just use QR Code to login for Linux service.
+### Just use QR Code to login for Linux service.
 
 #### Requirements
 
