@@ -16,7 +16,7 @@
 下载本项目，进入`ipgw.py`的路径下，使用python运行该文件：
 
 ```shell
-python ipgw.py
+./ipgw.py
 ```
 
 默认情况下是登录，运行后会显示一个二维码，如下图所示：
@@ -30,16 +30,16 @@ python ipgw.py
 注销与登录操作类似，只需要在运行时加`logout`参数：
 
 ```shell
-python ipgw.py --logout
+./ipgw.py --logout
 ```
 
 运行并扫码验证即可注销当前登录的账号。
 
 ### 需求库
 
-- numpy==1.20.1
-- pillow==8.2.0
-- selenium==3.141.0
+- numpy
+- pillow
+- selenium
 
 此外，还需要下载[geckodriver](https://github.com/mozilla/geckodriver/releases)并将其路径加入PATH。
 
