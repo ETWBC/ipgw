@@ -3,6 +3,7 @@
 import base64
 
 import argparse
+import os
 
 import numpy as np
 from PIL import Image
@@ -59,5 +60,5 @@ if __name__ == '__main__':
             WebDriverWait(browser, 120, 1).until(EC.visibility_of_element_located((By.ID, 'login-sso')))
             print("注销成功！")
     finally:
-        browser.save_screenshot('ipgw.png')
+        browser.save_screenshot(os.path.join(os.getcwd(), 'ipgw.png'))
         browser.close()
