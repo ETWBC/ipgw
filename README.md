@@ -46,10 +46,11 @@ python ipgw.py --logout
 
 使用`chmod +x ipgw.py`为其添加可执行权限。
 将用户目录下的 `.bashrc` 文件后加入两行
-···shell
-alias login='该py文件所在文件夹/ipgw.py'
-alias logout='该py文件所在文件夹/ipgw.py --logout'
+```shell
+alias login='ipgw.py文件所在文件夹/ipgw.py'
+alias logout='ipgw.py文件所在文件夹/ipgw.py --logout'
 ```
+
 然后可以在全局使用`login`进行登录，`logout`进行登出。
 
 ## 说明
