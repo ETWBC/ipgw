@@ -35,9 +35,9 @@ if __name__ == '__main__':
             WebDriverWait(browser, 180, 1).until(EC.visibility_of_element_located((By.ID, 'qrcode')))
             screenshot_as_base64 = browser.find_element('id', 'qrcode').screenshot_as_base64
             img = base64.b64decode(screenshot_as_base64)
-            with open('test.jpg', 'wb') as f:
+            with open('QRcode.jpg', 'wb') as f:
                 f.write(img)
-            img = Image.open('test.jpg')
+            img = Image.open('QRcode.jpg')
             img = np.asarray(img)[1:-1, 1:-1, 0]
             img = np.delete(img, [18, 36, 52, 71, -52, -36, -18, -1], axis=0)
             img = np.delete(img, [18, 36, 52, 71, -52, -36, -18, -1], axis=1)
