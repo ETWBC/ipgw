@@ -1,23 +1,49 @@
-# ipgw
+# Safetely login ipgw(NEU) with QRcode
 
-### Just use QR Code to login for Linux service.
+**在服务器上使用二维码安全地登录东北大学校园网**
 
-#### Requirements
+通常在服务器上想要远程连接登录校园网账号时，需要使用账号密码，而目前GitHub上面的方法都需要在本地存储账号和明文密码，安全性较弱，因此我们通过模拟浏览器行为写了这个利用二维码登录校园网的项目。
 
-- selenium
- 
-  To use this, you need download [geckodriver](https://github.com/mozilla/geckodriver/releases) 
-  
-  Add where you save [geckodriver](https://github.com/mozilla/geckodriver/releases) in environment PATH.
+## 贡献者
 
-- numpy
+[Bingchao Wang](https://github.com/ETWBC); [Ming Wang](https://github.com/wangming1785)
 
-#### login&logout
+## 如何使用
+使用`chmod +x ipgw.py`为其添加可执行权限。
 
-you can use `chmod +x ipgw.py` before first run python file.
+### 登录
 
-- login: `./ipgw.py` 
-- logout: `./ipgw.py --logout`
+下载本项目，进入`ipgw.py`的路径下，使用python运行该文件：
 
+```shell
+python ipgw.py
+```
 
+默认情况下是登录，运行后会显示一个二维码，如下图所示：
+
+![image-20211129125929546](https://github.com/ETWBC/ipgw/blob/main/QRcode-sample.png)
+
+使用微信或智慧东大扫码（推荐使用微信，智慧东大扫码不灵敏），进行授权，即可登录。
+
+### 注销
+
+注销与登录操作类似，只需要在运行时加`logout`参数：
+
+```shell
+python ipgw.py --logout
+```
+
+运行并扫码验证即可注销当前登录的账号。
+
+### 需求库
+
+- numpy==1.20.1
+- pillow==8.2.0
+- selenium==3.141.0
+
+此外，还需要下载[geckodriver](https://github.com/mozilla/geckodriver/releases)并将其路径加入PATH。
+
+## 说明
+
+该项目为了方便校内同学在不需要输入明文密码的情况下安全登录校园网账号，也欢迎各位同学和我们一同优化这一项目。
 
